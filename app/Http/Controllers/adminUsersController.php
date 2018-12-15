@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Role;
 use App\User;
 use App\Http\Requests\UserRequest;
+use App\Photo;
 
 class adminUsersController extends Controller
 {
@@ -43,15 +44,21 @@ class adminUsersController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[
-            'name'=>'required',
-            'email'=>'required',
-            'role_id'=>'required',
-            'is_active'=>'required',
-            'password'=>'required'
-        ]);
-    User::create($request->all());
-        return redirect('/admin/users');
+        $input = $request->all();
+        //check if theres a file uploaded
+        if($file=$request->file('photo_id')){
+            //get its name and append the time of upload to it
+            $name = time().$file->getClientOriginalName();
+            //move it to the public images folder
+            $file->move('images',$name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id']= $photo->id;
+        }
+        //ecnvrypt password
+        $input['password'] = bcrypt($request->password);
+        //if there is no photo do this
+        User::create($input);
+        // return redirect('/admin/users');
      
     }
 

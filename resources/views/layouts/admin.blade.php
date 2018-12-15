@@ -26,10 +26,10 @@
             <em class="fa fa-navicon">&nbsp;</em> Users <span data-toggle="collapse" href="#users" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="users">
-                <li><a class="" href="#">
+            <li><a class="" href="{{route('users.index')}}">
                     <span class="fa fa-arrow-right">&nbsp;</span> All Users
                 </a></li>
-                <li><a class="" href="#">
+            <li><a class="" href="{{route('users.create')}}">
                     <span class="fa fa-arrow-right">&nbsp;</span> Create User
                 </a></li>
      
