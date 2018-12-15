@@ -93,4 +93,9 @@
 
 <script src="{{asset('/js/admin/jquery-1.11.1.min.js')}}"></script>
 <script src="{{asset('/js/admin/bootstrap.min.js')}}"></script>
+@yield('scripts')
+<script>
+  $('#form').parsley();
+
+</script>
 @include('partials._admin_footer')

@@ -12,7 +12,9 @@
     {{-- <link href="css/datepicker3.css" rel="stylesheet"> --}}
     <link rel="stylesheet" href="{{asset('css/admin/datepicker3.css')}}">
     {{-- <link href="css/styles.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{asset('css/parsley.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin/styles.css')}}">
+    
 	
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -24,4 +26,5 @@
     <![endif]-->
     {{-- <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script> --}}
+
     </head>
