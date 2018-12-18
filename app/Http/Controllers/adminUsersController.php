@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\User;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UsersRequest;
 use App\Photo;
+use App\Http\Requests\UsersEditRequest;
 
 class adminUsersController extends Controller
 {
@@ -41,10 +42,17 @@ class adminUsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsersRequest $request)
     {
-        //
-        $input = $request->all();
+        if(trim($request->password )== ''){
+            $input = $request->except('password');
+        }
+        else{
+            $input = $request->all();
+          //ecnvrypt password iff the password is there
+            $input['password'] = bcrypt($request->password);
+        }
+        
         //check if theres a file uploaded
         if($file=$request->file('photo_id')){
             //get its name and append the time of upload to it
@@ -54,11 +62,10 @@ class adminUsersController extends Controller
             $photo = Photo::create(['file'=>$name]);
             $input['photo_id']= $photo->id;
         }
-        //ecnvrypt password
-        $input['password'] = bcrypt($request->password);
+      
         //if there is no photo do this
         User::create($input);
-        // return redirect('/admin/users');
+        return redirect('/admin/users');
      
     }
 
@@ -81,7 +88,11 @@ class adminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        //Find user
+        $user = User::findOrFail($id);
+        $roles = Role::pluck('name', 'id')->all();
+        return view ('admin.users.edit',compact('user','roles'));
+        
     }
 
     /**
@@ -91,9 +102,33 @@ class adminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
-        //
+        // Get specific user
+        $user= User::findOrFail($id);
+
+        //lets grab the request data and save it in input 
+        if(trim($request->password )== ''){
+            $input = $request->except('password');
+        }
+        else{
+            $input = $request->all();
+          //ecnvrypt password iff the password is there
+            $input['password'] = bcrypt($request->password);
+        }
+        $input = $request->all();
+        if($file = $request->file('photo_id')){
+             //get its name and append the time of upload to it
+             $name = time().$file->getClientOriginalName();
+             //move it to the public images folder
+             $file->move('images',$name);
+             $photo = Photo::create(['file'=>$name]);
+             $input['photo_id']= $photo->id;
+
+        }
+        $user->update($input);
+        return redirect('/admin/users');
+
     }
 
     /**

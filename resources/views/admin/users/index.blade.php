@@ -14,7 +14,8 @@
             <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                  <th scope="col">Photo</th>
                     <th scope="col">Firstname</th>
                     
                     <th scope="col">Email</th>
@@ -29,7 +30,8 @@
                     @foreach ($users as $user)
                     <tr>
                     <th scope="row">{{$user->id}}</th>
-                    <td>{{$user->name}}</td>
+                    <td><img height='50' src="{{$user->photo ? $user->photo->file : '/icons/user@High.png'}}" alt="" ></td>
+                    <td><a href="{{route('users.edit',$user->id)}}">{{$user->name}}</a></td>
                             
                     <td>{{$user->email}}</td>
                     <td>{{$user->role->name}}</td>
