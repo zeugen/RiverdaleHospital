@@ -7,6 +7,7 @@ use App\Post;
 use App\Photo;
 use App\Http\Requests\PostsCreateRequest;
 use Auth;
+use App\Category;
 
 class adminPostsController extends Controller
 {
@@ -30,7 +31,8 @@ class adminPostsController extends Controller
     public function create()
     {
         //
-        return view('admin.posts.create');
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**

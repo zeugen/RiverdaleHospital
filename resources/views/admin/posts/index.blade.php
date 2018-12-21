@@ -35,7 +35,7 @@
                         <td>{{$post->id}}</td>   
                         <td><img height='50' src="{{$post->photo ? $post->photo->file : '/icons/attach@High.png'}} " alt="Blog photo"></td>    
                         <td>{{$post->user->name}}</td>
-                        <td>{{$post->category_id}}</td>
+                        <td>{{$post->category? $post->category->name : "Uncategorized"}}</td>
                         
                     <td>{{$post->title}}</td>
                     <td>{{$post->body}}</td>

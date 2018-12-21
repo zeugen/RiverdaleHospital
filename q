@@ -1,0 +1,41 @@
+[33mcommit 6400528e33e0ee67a9cb170923f6f53fa203a06b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Sat Dec 22 00:50:58 2018 +0300
+
+    able to create post with fake categories
+
+[33mcommit 7c5d82b933b9371f6a9ee5195d09a78f69c86e35[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Tue Dec 18 22:42:14 2018 +0300
+
+     admin users section working without  well. yet to work on navigation and password check/edit
+
+[33mcommit 6cb6b66aa23469f81d0794c3dd1e0a98a43a0dcb[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Tue Dec 18 16:36:16 2018 +0300
+
+    admin users section working without middleware configuration
+
+[33mcommit 1cb786774cf94b4b49e5f7c72ede95caa0f47203[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Sat Dec 15 03:59:28 2018 +0300
+
+    Users with photos working
+
+[33mcommit 0d800c6f99869c705c07922ba3127e836d8754aa[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Sat Dec 15 03:25:42 2018 +0300
+
+    users page working without photos
+
+[33mcommit c6c1a218fc88f44715ff4066bb624c92fbba9e00[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Wed Dec 12 00:02:13 2018 +0300
+
+    setup admin master area
+
+[33mcommit d387abd9a66db3d4bd8f43497a369cb0e4bb67e1[m
+Author: Momanyi Rogers <rmomanyi1@gmail.com>
+Date:   Tue Dec 11 21:18:06 2018 +0300
+
+    First Commit - admin views created
