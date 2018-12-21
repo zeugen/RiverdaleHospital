@@ -6,10 +6,10 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
     <div class="profile-sidebar">
         <div class="profile-userpic">
-            <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
+            <img src="{{Auth::user()->photo ? Auth::user()->photo->file : '/icons/user@High.png'}}" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
-            <div class="profile-usertitle-name">Username</div>
+        <div class="profile-usertitle-name">{{Auth::user()->name}}</div>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
         </div>
         <div class="clear"></div>
@@ -40,12 +40,14 @@
             <em class="fa fa-navicon">&nbsp;</em> Posts <span data-toggle="collapse" href="#posts" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="posts">
-                <li><a class="" href="#">
+            <li><a class="" href="{{route('posts.index')}}">
                     <span class="fa fa-arrow-right">&nbsp;</span> All Posts
                 </a></li>
-                <li><a class="" href="#">
+
+            <li><a class="" href="{{route('posts.create')}}">
                     <span class="fa fa-arrow-right">&nbsp;</span> Create Post
                 </a></li>
+
 
             </ul>
         </li>

@@ -41,7 +41,7 @@
                         {!!Form::password('password', ['class'=>'form-control'])!!}
                     </div>
                     <div class="form-group">
-                        {!!Form::submit('Create User', ['class'=>'btn btn-lg btn-primary'])!!}
+                        {!!Form::submit('Update User', ['class'=>'btn btn-lg btn-primary'])!!}
                         {!! Form::close() !!}
                         {{Form::open(['method'=>'DELETE', 'action'=>['adminUsersController@destroy',$user->id], 'class'=>'pull-right'])}}
 

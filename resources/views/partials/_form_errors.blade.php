@@ -1,6 +1,6 @@
 @if (count($errors)>0)
                 
-<div class="alert alert-warning alert-dismissible " role="alert">
+<div class="alert alert-danger alert-dismissible " role="alert">
         
         <strong>Errors were found!</strong> You should check in on some of those fields below.
         <ul>

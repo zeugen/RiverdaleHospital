@@ -14,16 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin',function(){
-    return view('admin.index');
-});
+
 
 
 Auth::routes();
 
 Route::group(['middleware'=>'admin'],function(){
+    Route::get('/admin',function(){
+        return view('admin.index');
+    });
     Route::resource('admin/users','adminUsersController');
+    Route::resource('admin/posts','adminPostsController');
 });
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
